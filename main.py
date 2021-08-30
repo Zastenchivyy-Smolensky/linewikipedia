@@ -9,7 +9,6 @@ from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
 import os
-import wikipedia
 
 app = Flask(__name__)
 
@@ -19,7 +18,6 @@ LINE_CHANNEL_SECRET = os.environ["LINE_CHANNEL_SECRET"]
 line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(LINE_CHANNEL_SECRET)
 
-wikipedia.set_lang("ja") # 追加
 
 @app.route("/callback", methods=['POST'])
 def callback():
